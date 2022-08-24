@@ -14,12 +14,14 @@ use Session;
 use App\Models\Navigation;
 use App\Job;
 use App\Contact;
+use App\Memberform;
 
 use Mail;
 
 class ContactController extends Controller
 {
 
+ 
     public function send(Request $request)
     {
         $data = $request->all();
@@ -101,11 +103,9 @@ class ContactController extends Controller
         $contact->name = $req['name'];
         $contact->number = $req['number'];
         $contact->email = $req['email'];
-        $contact->file = $name;
+        $contact->subject = $req['subject'];
         $contact->message = $req['message'];
-        $contact->job_id = $req['job_id'];//job_detail
-        $contact->apply_for = $req['apply_for'];//job title
-        $contact->country = $req['country'];
+       
         $contact->save();
         if($contact){
             Session::flash('contact', 'Thanks for submitting'); 
@@ -117,19 +117,71 @@ class ContactController extends Controller
         }
 
     }
+    public function MemberformStore(Request $req){
+        $validated = $req->validate([
+            'name' => 'required',
+            'number' => 'required',
+         ]);
+ //return $req['country'];
+ $contact = new memberform;
+ $contact->gov_reg_date = $req['gov_reg_date'];
+ $contact->owner_name = $req['owner_name'];
+ $contact->company_name = $req['company_name'];
+ $contact->company_type = $req['company_type'];
+ $contact->business_type = $req['business_type'];
+ $contact->main_commodities = $req['main_commodities'];
+ $contact->exported_to = $req['exported_to'];
+ $contact->office_address = $req['office_address'];
+ $contact->postal_addres =$req['postal_address'];
+ $contact->telephone_no	 = $req['telephone_no'];
+ $contact->fax_no = $req['fax_no'];
+ $contact->email = $req['email'];
+ $contact->website = $req['website'];
+ $contact->regd_no = $req['regd_no'];
+ $contact->date = $req['date'];
+ $contact->department = $req['department'];
+ $contact->pan_no = $req['pan_no'];
+ $contact->capital = $req['capital'];
+ $contact->national = $req['national'];
+ $contact->international = $req['international'];
+ $contact->accept_policies = $req['accept_policies'];
+
+ $contact->save();
+ if($contact){
+     Session::flash('contact', 'Thanks for submitting'); 
+     return redirect('/');
+ }
+ else{
+     Session::flash('contact_error', 'Sorry form submitted failed'); 
+     return redirect('/');
+ }
+
+}
+   
     public function Destroy($slug){
         $contact = Contact::where('nav_name',$slug)->delete();
         return redirect('/');
     }
 
-    public function AppliedJob(){
+    public function MessageList(){
         //$navigations  = Navigation::where('page_type','Job')->orderBy('position','ASC')->get();
         $contacts = Contact::all();
         //return $jobs;
         //return $jobs->navigation;
         $categories = Navigation::where('page_type','Group')->where('parent_page_id',0)->get();
         //return $navigations;
-        return view('admin.job.applied_job_list', compact('contacts','categories'));
+        return view('admin.job.message-list', compact('contacts','categories'));
+    }
+    public function MemberList(){
+        //$navigations  = Navigation::where('page_type','Job')->orderBy('position','ASC')->get();
+        $members = Memberform::all();
+
+       // return $members;
+        //return $jobs;
+        //return $jobs->navigation;
+        $categories = Navigation::where('page_type','Group')->where('parent_page_id',0)->get();
+        //return $navigations;
+        return view('admin.job.membership-list', compact('members','categories'));
     }
     public function Contactelete($slug){
         Contact::find($slug)->delete();

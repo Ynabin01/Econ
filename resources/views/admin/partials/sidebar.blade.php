@@ -28,15 +28,16 @@
                         href="{{url('/admin/global-setting')}}"><i class="fa fa-cog"></i> <span>Global Setup</span></a>
             </li>
             <!--------customized by MD------------>
-             <li class="{{Request::is('admin/job-list')?'active':''}}  treeview"><a
-                        href="{{url('/admin/job-list')}}"><i class="fa fa-cog"></i> <span>JOBS</span></a>
-            </li>
-            <!----------end------------>
                <!--------customized by MD------------>
-             <li class="{{Request::is('admin/applied-job-list')?'active':''}}  treeview"><a
-                        href="{{url('/admin/applied-job-list')}}"><i class="fa fa-cog"></i> <span>Applied Job</span></a>
+             <li class="{{Request::is('admin/message-list')?'active':''}}  treeview"><a
+                        href="{{url('/admin/message-list')}}"><i class="fa fa-cog"></i> <span>Messages</span></a>
             </li>
             <!----------end------------>
+              <!--------customized by MD------------>
+              <li class="{{Request::is('admin/member-list')?'active':''}}  treeview"><a
+                        href="{{url('/admin/member-list')}}"><i class="fa fa-cog"></i> <span>Membership Form</span></a>
+    </li>
+    <!----------end------------>
         </ul>
     </section>
     <!-- /.sidebar -->

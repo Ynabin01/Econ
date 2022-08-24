@@ -24,7 +24,8 @@
                 <h2>Membership Form</h2>
 
                 <div class="form-inputs">
-                    <form class="needs-validation" novalidate>
+                    <form class="needs-validation" action="/member/store" method="POST"  enctype='multipart/form-data' novalidate>
+                       @csrf
                         <div class="form-row">
                             <div class="col-md-4">
                                 <div class="text-input">

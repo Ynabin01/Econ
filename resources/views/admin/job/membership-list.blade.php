@@ -11,7 +11,7 @@
                 <div class="box">
                     <div class="box-header">
                         <h3 class="box-title" style="font-weight: bold;margin-bottom: 10px;">
-                            Job List
+                            Messages
                         </h3>
                         <div class="clearfix"></div>
 
@@ -60,39 +60,58 @@
                                      
                              <tr>
                                 <th>S.NO: #</th>
-                                <th>ID</th>
-                                <th>Name</th>
-                                <th>Number</th>
+                                <th>GovRegdDate</th>
+                                <th>Owner Name</th>
+                                <th>Name of the Company</th>
+                                <th>Type of Company</th>
+                                <th>Type of Business</th>
+                                <th>Main Commodities</th>
+                                <th>Exported to</th>
+                                <th>Office Address</th>
+                                <th>Postal Address</th>
+                                <th>Telephone No</th>
+                                <th>Fax No</th>
                                 <th>Email</th>
-                                <th>Message</th>
-                                <th>Resumes</th>
-                                <th>job title</th>
-                                <th>company name</th>
-                                <th>country</th>
-                                <th>salary</th>
-                                <th>contract period</th>
-                                <th>job category</th>
-                                <th>Action</th>
+                                <th>Website </th>
+                                <th>Regd No</th>
+                                <th>Date </th>
+                                <th>Department </th>
+                                <th>PAN No</th>
+                                <th>Capital </th>
+                                <th>Natinal </th>
+                                <th>International </th>
+                                <th>Accept Policies </th>                            
+                              
                             </tr>
                             </thead>
                             <tbody>
                                 @php use App\Job; @endphp
-                                @foreach($contacts as $index=>$contact)
+                                @foreach($members as $index=>$member)
                                     <tr>
                                         <td>{{$index+1}}</td>
-                                        <td>{{$contact->id ?? ''}}</td>
-                                        <td>{{$contact->name ?? ''}}</td>                                     
-                                        <td>{{$contact->number ?? ''}}</td>
-                                        <td>{{$contact->email ?? ''}}</td>
-                                        <td>{{$contact->message ?? ''}}</td>
-                                        <td><a href="{{$contact->file ?? '#'}}"><button type="button" class="btn btn-danger btn-sm">View</button></td>
-                                        <td>{{$contact->job_id ?? ''}}</td>
-                                        <td>{{$contact->contract_time ?? ''}}</td>
-                                        <td>{{$contact->navigation->short_content ?? ''}}</td>
-                                        <td>{{$contact->navigation->caption ?? ''}}</td>
-                                        <td>{{$contact->navigation->caption ?? ''}}</td>
-                                        <td>{{$contact->navigation->caption ?? ''}}</td>
-                                       <td><a href="{{route('contactDelete',$contact->id)}}"><button type="button" class="btn btn-danger btn-sm">Delete</button></td>
+                                        <td>{{$member->gov_reg_date ?? ''}}</td>
+                                        <td>{{$member->owner_name ?? ''}}</td>                                     
+                                        <td>{{$member->company_name ?? ''}}</td>
+                                        <td>{{$member->company_type	 ?? ''}}</td>
+                                        <td>{{$member->business_type ?? ''}}</td>
+                                        <td>{{$member->main_commodities ?? ''}}</td>
+                                        <td>{{$member->exported_to ?? ''}}</td>
+                                        <td>{{$member->office_address ?? ''}}</td>
+                                        <td>{{$member->postal_address ?? ''}}</td>
+                                        <td>{{$member->telephone_no ?? ''}}</td>
+                                        <td>{{$member->fax_no ?? ''}}</td>
+                                        <td>{{$member->email ?? ''}}</td>
+                                        <td>{{$member->website ?? ''}}</td>
+                                        <td>{{$member->regd_no ?? ''}}</td>
+                                        <td>{{$member->date ?? ''}}</td>
+                                        <td>{{$member->department	 ?? ''}}</td>
+                                        <td>{{$member->pan_no ?? ''}}</td>
+                                        <td>{{$member->capital ?? ''}}</td>
+                                        <td>{{$member->national  ?? ''}}</td>
+                                        <td>{{$member->international ?? ''}}</td>
+                                        <td>{{$member->accept_policies ?? ''}}</td>
+                                        
+                                       <td><a href="route('contactDelete',$member->id"><button type="button" class="btn btn-danger btn-sm">Delete</button></td>
                                     </tr>
                                     @endforeach
                             </tbody>

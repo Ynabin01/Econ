@@ -89,8 +89,8 @@ Route::prefix('admin')->group(function(){
     Route::get('/jobedit/{category}/{id}', 'JobController@edit')->name("jobedit");
     Route::post('/jobupdate/{category}/{id}','JobController@JobUpdate');
     Route::get('/job/delete-banner-image/{category}/{id}/deleteimage3','JobController@deleteBannerImage')->name('deleteBannerImage');
-    Route::get('/job-list', 'JobController@jobList')->name("joblist");
-    Route::get('/applied-job-list', 'ContactController@AppliedJob')->name("AppliedJob");
+    Route::get('/message-list', 'ContactController@MessageList')->name("MessageList");
+    Route::get('/member-list', 'ContactController@MemberList')->name("Member");
 
 });
 Route::get('/memberlist',function(){
@@ -99,6 +99,10 @@ Route::get('/memberlist',function(){
 Route::get('/memberform',function(){
     return view("website.memberform");
 });
+
+
+Route::POST('member/store',[ContactController::class,'MemberformStore'])->name('memberstore');
+
 Route::get('get_gallery_photos',[HomeController::class,'get_gallery_photos'])->name('get_gallery_photos');
 Route::get('gallery-view/{slug}',[HomeController::class,'GalleryView'])->name('galleryview');
 Route::get('inquiry',[ContactController::class,'inquiry'])->name('inquiry');

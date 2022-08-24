@@ -26,7 +26,9 @@
                         <p>contact with us</p>
                         <h3>write us a message</h3>
                     </div>
-                    <form class="contact-one__form">
+                    <form class="contact-one__form" action="{{route('contactstore')}}" method="POST" class=" autocomplete="on" enctype='multipart/form-data'>
+                        @csrf
+                    
                         <div class="row low-gutters">
                             <div class="col-md-6">
                                 <div class="input-group">
@@ -40,7 +42,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="input-group">
-                                    <input type="text" name="phone" placeholder="Phone Number">
+                                    <input type="text" name="number" placeholder="Phone Number">
                                 </div>
                             </div>
                             <div class="col-md-6">

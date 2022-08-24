@@ -93,7 +93,12 @@ Route::prefix('admin')->group(function(){
     Route::get('/applied-job-list', 'ContactController@AppliedJob')->name("AppliedJob");
 
 });
-
+Route::get('/memberlist',function(){
+    return view("website.memberlist");
+});
+Route::get('/memberform',function(){
+    return view("website.memberform");
+});
 Route::get('get_gallery_photos',[HomeController::class,'get_gallery_photos'])->name('get_gallery_photos');
 Route::get('gallery-view/{slug}',[HomeController::class,'GalleryView'])->name('galleryview');
 Route::get('inquiry',[ContactController::class,'inquiry'])->name('inquiry');

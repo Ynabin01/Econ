@@ -1,3 +1,14 @@
+@php
+    $menus = App\Models\Navigation::query()->where('nav_category','Main')->where('page_type','!=','Service')->where('page_type','!=','News & Events')->where('parent_page_id',0)->where('page_status','1')->orderBy('position','ASC')->get();
+    $global_setting = App\Models\GlobalSetting::all()->first();
+    $services = App\Models\Navigation::query()->where('page_type','Service')->where('page_status','1')->latest()->paginate(8);
+    if(isset($normal)){
+        $seo = $normal;
+    }
+    elseif(isset($job)){
+        $seo = $job;
+    }
+@endphp
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,28 +18,28 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ECON || Export Council of Nepal</title>
 
-    <link rel="icon" type="image/png" href="website/images/favicon.png">
+    <link rel="icon" type="image/png" href="/website/images/favicon.png">
 
     <!-- Fonts-->
     <link href='https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700&display=swap' rel="stylesheet">
     <!-- Css-->
-    <link rel="stylesheet" href="website/css/bootstrap.min.css">
-    <link rel="stylesheet" href="website/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="website/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="website/css/magnific-popup.css">
-    <link rel="stylesheet" href="website/css/fontawesome-all.min.css">
-    <link rel="stylesheet" href="website/css/jquery.mCustomScrollbar.min.css">
-    <link rel="stylesheet" href="website/css/agrikol_iconl.css">
+    <link rel="stylesheet" href="/website/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/website/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/website/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/website/css/magnific-popup.css">
+    <link rel="stylesheet" href="/website/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/website/css/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="/website/css/agrikol_iconl.css">
     <!-- Template styles -->
-    <link rel="stylesheet" href="website/css/style.css">
-    <link rel="stylesheet" href="website/css/responsive.css">
+    <link rel="stylesheet" href="/website/css/style.css">
+    <link rel="stylesheet" href="/website/css/responsive.css">
 
 </head>
 
 <body>
 
     <div class="preloader">
-        <img src="website/images/econ.png" class="preloader__image" alt="">
+        <img src="/website/images/econ.png" class="preloader__image" alt="">
     </div>
     <!-- /.preloader -->
 
@@ -79,10 +90,8 @@
                                     <li><a href="{{ route('category', $menu->nav_name) }}">{{ $menu->caption }}</a>
                                         <ul>
 
-                                            @foreach($menu->childs as $submenu)
-                                                @if($submenu->page_type=="Normal" || $menu->nav_name=="department" || $submenu->page_type=="Photo Gallery" || $submenu->page_type=="Video Gallery" || $submenu->page_type=="Group")
-                                                    <li><a href="{{route('subcategory',[$menu->nav_name,$submenu->nav_name])}}">{{$submenu->caption}}</a></li>
-                                                @endif
+                                            @foreach($menu->childs as $submenu)                                                
+                                                    <li><a href="{{route('subcategory',[$menu->nav_name,$submenu->nav_name])}}">{{$submenu->caption}}</a></li>                                                
                                             @endforeach
                                         </ul>
                                          
@@ -91,8 +100,8 @@
                                 <li class="dropdown">
                                     <a href="#">Member</a>
                                     <ul>
-                                        <li><a href="memberlist">Members List</a></li>
-                                        <li><a href="memberform">Membership Form</a></li>
+                                        <li><a href="/memberlist">Members List</a></li>
+                                        <li><a href="/memberform">Membership Form</a></li>
                                     </ul>
                                 </li>
 
@@ -121,7 +130,7 @@
                         <div class="footer-widget__column footer-widget__about">
                             <div class="footer-widget_about_text">
                                 <div class="logo">
-                                    <a href="index"><img src="website/images/econ-fit.png" alt="logo"></a>
+                                    <a href="index"><img src="/website/images/econ-fit.png" alt="logo"></a>
                                 </div>
                                 <p>Export Council of Nepal, a council of the Nepalese trading firms/companies
                                     (traditional garment, handicraft and woolen goods exporters), was established in
@@ -204,7 +213,7 @@
         <div class="side-menu__block-inner ">
             <div class="side-menu__top justify-content-end">
                 <a href="#" class="side-menu__toggler side-menu__close-btn"><img
-                        src="website/images/close-1-1.png" alt=""></a>
+                        src="/website/images/close-1-1.png" alt=""></a>
             </div><!-- /.side-menu__top -->
 
             <nav class="mobile-nav__container">
@@ -215,17 +224,17 @@
         </div>
     </div>
 
-    <script src="website/js/jquery.min.js"></script>
-    <script src="website/js/bootstrap.bundle.min.js"></script>
-    <script src="website/js/owl.carousel.min.js"></script>
-    <script src="website/js/jquery.magnific-popup.min.js"></script>
-    <script src="website/js/TweenMax.min.js"></script>
-    <script src="website/js/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="website/js/marquee.js"></script>
-    <script src="website/js/theme.js"></script>
+    <script src="/website/js/jquery.min.js"></script>
+    <script src="/website/js/bootstrap.bundle.min.js"></script>
+    <script src="/website/js/owl.carousel.min.js"></script>
+    <script src="/website/js/jquery.magnific-popup.min.js"></script>
+    <script src="/website/js/TweenMax.min.js"></script>
+    <script src="/website/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="/website/js/marquee.js"></script>
+    <script src="/website/js/theme.js"></script>
 
     <!-- template scripts -->
-    {{-- <script src="website/js/theme.js"></script> --}}
+    {{-- <script src="/website/js/theme.js"></script> --}}
 
     <script type="text/javascript">
         $(function() {

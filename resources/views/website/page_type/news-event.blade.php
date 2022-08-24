@@ -1,43 +1,46 @@
-@extends("layouts.master")
-@section("content")
-
-
-<section class="page-title page-title-layout5 bg-img" style="background-image: url(/website/images/6.jpg) !important; background-size: cover; background-position: center center; padding-top: 120px;">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 d-flex justify-content-between flex-wrap align-items-center">
-            <h1 class="pagetitle__heading my-3">{{$slug_detail->caption ?? $slug1}}</h1>
-            <nav>
-              <ol class="breadcrumb my-3">
-                <li class="breadcrumb-item"><a href="#">{{$slug1}}</a></li>
-                <li class="breadcrumb-item">{{$slug_detail->nav_name ?? ''}}</li>
-              </ol>
-            </nav>
-          </div><!-- /.col-12 -->
-        </div><!-- /.row -->
-      </div><!-- /.container -->
+@extends('layouts.master')
+@section('content')
+    <section class="page-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h6>News & Events</h6>
+                </div>
+                <div class="col-md-6">
+                    <ul class="thm-breadcrumb list-unstyled">
+                        <li><a href="index.html">Home</a></li>
+                        <li><span>News & Events</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </section>
 
-<section class="latest_news news-page">
-	<div class="container">
-		<div class="row">
-            <!-----start---->
-            @foreach($newsevents as $newevent)
-                <div class="col-lg-3 col-md-4 col-sm-12">
-                    <div class="outer-box">
-                            <a href="/{{$slug1}}/{{$newevent->nav_name}}">
-                                <div class="box" style="background-image: url({{$newevent->banner_image}})">
-                                    <div class="box-overlay">
-                                        <h3>{{$newevent->caption}}</h3>
-                                    </div>
-                                </div>
-                            </a>
+    <section class="news-event">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="news-list">
+                        <ul>
+                            <li><a href="inner">13th Annual General Meeting concluded</a></li>
+                            <li><a href="inner">ECON calls to use ASYCUDA System</a></li>
+                            <li><a href="inner"> 18th AGM of the Council on shrawan 14,2072</a></li>
+                            <li><a href="inner"> Interaction and discussion program on export procedure</a></li>
+                            <li><a href="inner">19th AGM and Export Day 2073</a></li>
+                        </ul>
                     </div>
                 </div>
-            @endforeach
-          <!------end---->
-		</div>
-	</div>
-</section>
-
+                <div class="col-md-6">
+                    <div class="news-list">
+                        <ul>
+                            <li><a href="inner">13th Annual General Meeting concluded</a></li>
+                            <li><a href="inner">ECON calls to use ASYCUDA System</a></li>
+                            <li><a href="inner"> 18th AGM of the Council on shrawan 14,2072</a></li>
+                            <li><a href="inner"> Interaction and discussion program on export procedure</a></li>
+                            <li><a href="inner">19th AGM and Export Day 2073</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+    </section>
 @endsection

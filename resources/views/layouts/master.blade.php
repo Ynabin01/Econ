@@ -98,7 +98,7 @@
                                      </li>
                                 @endforeach
                                 <li class="dropdown">
-                                    <a href="#">Member</a>
+                                    <a href="#">Members</a>
                                     <ul>
                                         <li><a href="/memberlist">Members List</a></li>
                                         <li><a href="/memberform">Membership Form</a></li>

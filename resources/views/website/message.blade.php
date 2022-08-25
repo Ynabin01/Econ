@@ -13,7 +13,7 @@
                         <p>
                             {{$message->short_content ?? ''}}
                         </p>
-                        <a href="inner" class="thm-btn about_one__btn">Read More</a>
+                        <a href="/" class="thm-btn about_one__btn">Read More</a>
                     </div>
                 </div><!-- /.my-auto -->
             </div>

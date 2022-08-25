@@ -24,7 +24,7 @@
             @endif
                     </div>
         <div class="view-all-item text-center">
-        <a href="item-list.html" class="thm-btn about_one__btn">View All</a>
+        <a href="/news-list" class="thm-btn about_one__btn">View All</a>
         </div>
     </div>
 </section>

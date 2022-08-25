@@ -13,7 +13,7 @@
                         </p>
                     </div>
                     <div class="about1__button-block">
-                        <a href="inner.html" class="thm-btn about_one__btn">Read More</a>
+                        <a href="/" class="thm-btn about_one__btn">Read More</a>
                     </div>
                 </div>
             </div>

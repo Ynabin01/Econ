@@ -145,15 +145,15 @@
                                 <h3>Useful Links</h3>
                             </div>
                             <ul class="footer-widget__links-list list-unstyled">
-                                <li><a href="inner">About Us</a></li>
-                                <li><a href="inner">Vision & Mission</a></li>
-                                <li><a href="inner">Managment Team</a></li>
-                                <li><a href="inner">Advisory Committee</a></li>
-                                <li><a href="inner">Services</a></li>
-                                <li><a href="inner">Activities</a></li>
-                                <li><a href="inner">Export News</a></li>
-                                <li><a href="inner">Eduction of Export</a></li>
-                                <li><a href="inner">Membership Document</a></li>
+                                <li><a href="/who-we-are/about">About Us</a></li>
+                                <li><a href="/who-we-are/mission">Vision & Mission</a></li>
+                                <li><a href="/who-we-are/our-team">Managment Team</a></li>
+                                <li><a href="/who-we-are/advisory-committee">Advisory Committee</a></li>
+                                <li><a href="/services1">Services</a></li>
+                                <li><a href="/who-we-are/activities">Activities</a></li>
+                                <li><a href="/">Export News</a></li>
+                                <li><a href="/">Eduction of Export</a></li>
+                                <li><a href="/">Membership Document</a></li>
                             </ul>
                         </div>
                     </div>

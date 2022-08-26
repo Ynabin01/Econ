@@ -201,7 +201,9 @@ class HomeController extends Controller
         
         if($category_type == "Photo Gallery"){
             //return "return to page gallary";
-            $photos = Navigation::query()->where('parent_page_id',$category_id)->where('page_status','1')->latest()->get();
+            $navigataion_id = Navigation::where('nav_name',$menu)->first()->id;        
+            $photos = NavigationItems::where('navigation_id',$navigataion_id)->get();
+            
             return view("website.page_type.gallery")->with(['partners','photos'=>$photos,'jobs'=>$jobs,'menus'=>$menus,'sliders'=>$sliders,'about'=>$About,'global_setting'=>$global_setting,'slug_detail'=>$slug_detail]);
         }
         elseif($category_type == "Video Gallery"){

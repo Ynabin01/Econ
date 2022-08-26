@@ -1,76 +1,50 @@
 @extends("layouts.master")
-@section("content")
+
+@section('content')
+<section class="page-header">
+    <div class="container">
+        <div class="row align-items-center">
+        <div class="col-md-6">
+        <h6>Gallery</h6>
+        </div>
+        <div class="col-md-6">
+        <ul class="thm-breadcrumb list-unstyled">
+            <li><a href="/">Home</a></li>
+            <li><span>Gallery</span></li>
+        </ul>
+        </div>
+        </div>
+    </div>
+</section>
+
+<section class="gallery_two">
+    <div class="container">
+        {{-- <div class="row">
+            <div id="filter-id" class="col-md-12">
+                <button type="button" class="btn btn-outline-black waves-effect filter active" data-rel="all">All</button>
+                <button type="button" class="btn btn-outline-black waves-effect filter" data-rel="1">Event</button>
+                <button type="button" class="btn btn-outline-black waves-effect filter" data-rel="2">picnic 2021</button>
+                <button type="button" class="btn btn-outline-black waves-effect filter" data-rel="3">Team</button>
+            </div>
+        </div> --}}
+        <div class="row" id="lightgallery">
+			@foreach ($photos as $photo)		
 		
-
-<section class="page-title page-title-layout5 bg-img" style="background-image: url(/website/images/6.jpg) !important; background-size: cover; background-position: center center; padding-top: 120px;">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 d-flex justify-content-between flex-wrap align-items-center">
-            <h1 class="pagetitle__heading my-3">{{$slug_detail->caption ?? $slug1}}</h1>
-            <nav>
-              <ol class="breadcrumb my-3">
-                <li class="breadcrumb-item"><a href="#">{{$slug1}}</a></li>
-                <li class="breadcrumb-item">{{$slug_detail->nav_name ?? ''}}</li>
-              </ol>
-            </nav>
-          </div><!-- /.col-12 -->
-        </div><!-- /.row -->
-      </div><!-- /.container -->
-    </section>
-			<!-- 
-			=============================================
-				gallery
-			============================================== 
-			-->
-			@if(isset($photos))
-			<section class="section-spacing">
-				<div class="container">
-					<div class="gallery-view">
-		                <div class="row" id="lightgallery"> 
-							<!----gallary data----->
-							@foreach($photos as $photo)
-								<div class="item col-md-3" data-src="uploads/photo_gallery/{{$photo->file}}" data-sub-html="{{$photo->caption}}">
-									<a href="">
-										<img src="uploads/photo_gallery/{{$photo->file}}" alt="{{$photo->caption}}"/>
-										<div class="gallery-overlay"><img src="uploads/photo_gallery/{{$photo->file}}"></div>
-									</a>
+				<div class="col-xl-4 col-lg-6 col-md-6 all 1">
+					<div class="gallery_two_single">
+						<div class="gallery_two_image">
+							<img src="/uploads/photo_gallery/{{$photo->file}}" alt="">
+							<div class="gallery_two_hover_box">
+								<div class="gallery_two_icon">
+									<a class="img-popup" href="/uploads/photo_gallery/{{$photo->file}}"><span class="icon-plus-symbol"></span></a>
 								</div>
-							@endforeach
-						  <!----gallary data close----->
-		                </div>
-		            </div>
-          		</div>
-			</section>
-		  @endif
-		  		<!-- gllery js -->
-	    <script src="/website/js/gallery/picturefill.min.js"></script>
-	    <script src="/website/js/gallery/lightgallery.js"></script>
-	    <script src="/website/js/gallery/lg-pager.js"></script>
-	    <script src="/website/js/gallery/lg-autoplay.js"></script>
-	    <script src="/website/js/gallery/lg-fullscreen.js"></script>
-	    <script src="/website/js/gallery/lg-zoom.js"></script>
-	    <script src="/website/js/gallery/lg-hash.js"></script>
-	    <script src="/website/js/gallery/lg-share.js"></script>
-	    <!--End gllery js -->
+							</div>
+						</div>
+					</div>
+				</div>
 
-		<!-- Theme js -->
-		<script src="js/theme.js"></script>
-
-		<script>
-        lightGallery(document.getElementById('lightgallery'));
-
-        $(function() {
-        var selectedClass = "";
-        $(".filter").click(function(){
-        selectedClass = $(this).attr("data-rel");
-        $("#lightgallery").fadeTo(100, 0.1);
-        $("#lightgallery div").not("."+selectedClass).fadeOut().removeClass('animation');
-        setTimeout(function() {
-        $("."+selectedClass).fadeIn().addClass('animation');
-        $("#lightgallery").fadeTo(300, 1);
-        }, 300);
-        });
-        });
-    	</script>
-    @endsection
-    
+		@endforeach
+        </div>
+    </div>
+</section>
+@endsection

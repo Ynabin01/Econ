@@ -118,45 +118,45 @@ class ContactController extends Controller
 
     }
     public function MemberformStore(Request $req){
-        $validated = $req->validate([
-            'name' => 'required',
-            'number' => 'required',
-         ]);
- //return $req['country'];
- $contact = new memberform;
- $contact->gov_reg_date = $req['gov_reg_date'];
- $contact->owner_name = $req['owner_name'];
- $contact->company_name = $req['company_name'];
- $contact->company_type = $req['company_type'];
- $contact->business_type = $req['business_type'];
- $contact->main_commodities = $req['main_commodities'];
- $contact->exported_to = $req['exported_to'];
- $contact->office_address = $req['office_address'];
- $contact->postal_addres =$req['postal_address'];
- $contact->telephone_no	 = $req['telephone_no'];
- $contact->fax_no = $req['fax_no'];
- $contact->email = $req['email'];
- $contact->website = $req['website'];
- $contact->regd_no = $req['regd_no'];
- $contact->date = $req['date'];
- $contact->department = $req['department'];
- $contact->pan_no = $req['pan_no'];
- $contact->capital = $req['capital'];
- $contact->national = $req['national'];
- $contact->international = $req['international'];
- $contact->accept_policies = $req['accept_policies'];
+        // $validated = $req->validate([
+        //     'name' => 'required',
+        //     'number' => 'required',
+        //  ]);
+           //return $req['country'];
+            $contact = new Memberform;
+            $contact->gov_reg_date = $req['gov_reg_date'];
+            $contact->owner_name = $req['owner_name'];
+            $contact->company_name = $req['company_name'];
+            $contact->company_type = $req['company_type'];
+            $contact->business_type = $req['business_type'];
+            $contact->main_commodities = $req['main_commodities'];
+            $contact->exported_to = $req['exported_to'];
+            $contact->office_address = $req['office_address'];
+            $contact->postal_address =$req['postal_address'];
+            $contact->telephone_no	 = $req['telephone_no'];
+            $contact->fax_no = $req['fax_no'];
+            $contact->email = $req['email'];
+            $contact->website = $req['website'];
+            $contact->regd_no = $req['regd_no'];
+            $contact->date = $req['date'];
+            $contact->department = $req['department'];
+            $contact->pan_no = $req['pan_no'];
+            $contact->capital = $req['capital'];
+            $contact->national = $req['national'];
+            $contact->international = $req['international'];
+            $contact->accept_policies = $req['accept_policies'];
 
- $contact->save();
- if($contact){
-     Session::flash('contact', 'Thanks for submitting'); 
-     return redirect('/');
- }
- else{
-     Session::flash('contact_error', 'Sorry form submitted failed'); 
-     return redirect('/');
- }
+            $contact->save();
+            if($contact){
+                Session::flash('contact', 'Thanks for submitting'); 
+                return redirect('/');
+            }
+            else{
+                Session::flash('contact_error', 'Sorry form submitted failed'); 
+                return redirect('/');
+            }
 
-}
+      }
    
     public function Destroy($slug){
         $contact = Contact::where('nav_name',$slug)->delete();

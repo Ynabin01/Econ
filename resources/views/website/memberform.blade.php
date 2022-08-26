@@ -124,7 +124,7 @@
                                 </div>
                             </div>
                             <div class="col-md-12">
-                                <label class="havesub">Communicatio Details</label>
+                                <label class="havesub">Communication Details</label>
                             </div>
                             <div class="col-md-3">
                                 <div class="text-input">

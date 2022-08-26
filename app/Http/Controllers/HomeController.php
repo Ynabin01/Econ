@@ -198,7 +198,7 @@ class HomeController extends Controller
         else{
             $category_type = null;
         }
-        return $category_type;
+        
         if($category_type == "Photo Gallery"){
             //return "return to page gallary";
             $photos = Navigation::query()->where('parent_page_id',$category_id)->where('page_status','1')->latest()->get();

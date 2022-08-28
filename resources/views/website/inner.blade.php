@@ -45,15 +45,15 @@
                     <div class="sidebar">
                         <div class="sidebar__single sidebar__category">
                             <ul class="list-unstyled side-baer-menu">
-                                <li><a href="inner.html">Mission</a></li>
+                                <li><a href="/who-we-are/mission">Mission</a></li>
                                 <li class="active">Objective</li>
-                                <li><a href="inner.html">General Assembly and executive commitee</a></li>
-                                <li><a href="inner.html">Service</a></li>
-                                <li><a href="inner.html">Activities</a></li>
-                                <li><a href="inner.html">Future Planning</a></li>
-                                <li><a href="inner.html">Executive Member</a></li>
-                                <li><a href="inner.html">Secretariat</a></li>
-                                <li><a href="inner.html">Members Directory</a></li>
+                                <li><a href="/who-we-are/general-assembly">General Assembly</a></li>
+                                <li><a href="/services1">Service</a></li>
+                                <li><a href="/who-we-are/activities">Activities</a></li>
+                                <li><a href="/">Future Planning</a></li>
+                                <li><a href="/who-we-are/executive-committee">Executive Member</a></li>
+                                <li><a href="/who-we-are/secretariat">Secretariat</a></li>
+                                <li><a href="/who-we-are/members-directory">Members Directory</a></li>
                             </ul>
                         </div>
                         <div class="download_file_box">

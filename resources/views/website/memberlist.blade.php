@@ -16,7 +16,6 @@
             </div>
         </div>
     </section>
-
     <section class="innner_detail">
         <div class="container">
             <table class="table">
@@ -36,8 +35,6 @@
                             <br>Website: <a href="#" target="_blank">http://radiantnepal.com/</a></td>
                         <td data-label="Contact Person">Hari Parsad Aryal</td>
                     </tr>
-
-
                     <tr>
                         <td data-label="Member No.">94</td>
                         <td data-label="Company Name">Alpine Cargo P.LTD</td>

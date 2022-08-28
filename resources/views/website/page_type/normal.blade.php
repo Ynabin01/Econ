@@ -1,22 +1,6 @@
 @extends('layouts.master')
 @section('content')
-    <section class="page-header">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <h6>Objective</h6>
-                </div>
-                <div class="col-md-6">
-                    <ul class="thm-breadcrumb list-unstyled">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><span>Objective</span></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
+      @include('website.page_type.banner')
     <section class="innner_detail">
         <div class="container">
             <div class="row">
@@ -35,7 +19,7 @@
                             <div class="sidebar__single sidebar__category">
                                 <ul class="list-unstyled side-baer-menu">
                                     @foreach($childs as $child)
-                                        <li><a href="#">{{$child->caption}}</a></li>
+                                        <li><a href="/{{$slug_detail->nav_name}}/{{$child->nav_name}}">{{$child->caption}}</a></li>
                                     @endforeach
                                 </ul>
                             </div>

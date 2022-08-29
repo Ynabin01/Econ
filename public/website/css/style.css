@@ -5200,7 +5200,6 @@ section{
 .team_one {
     position: relative;
     display: block;
-    padding: 120px 0 90px;
 }
 .team_one .block-title {
     margin-bottom: 55px;
@@ -5210,16 +5209,20 @@ section{
     display: block;
     text-align: center;
     margin-bottom: 30px;
+    transition: transform 300ms ease 0ms;
+    box-shadow: 0px 10px 10px 0px rgb(0 0 0 / 3%);
 }
-
+.team_one_single:hover{
+    box-shadow: 0px 10px 10px 0px rgb(0 0 0 / 10%);
+    transform: scaleX(1.02) scaleY(1.02)!important;
+}
 .team_one_image img {
     width: 100%;
-    border-radius: 5px;
+    max-width: 192px;
 }
 .team_one_deatils {
     background: #ffffff;
-    padding: 24px 40px 30px;
-    margin-top: -20px;
+    padding: 20px 0;
     margin-left: 20px;
     margin-right: 20px;
     position: relative;
@@ -5227,22 +5230,24 @@ section{
     border-radius: 5px;
     transition: all 500ms ease;
 }
-.team_one_single:hover .team_one_deatils {
+/*.team_one_single:hover .team_one_deatils {
     box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.03);
-}
+}*/
 .team_one_deatils p {
-    color: #878986;
+    color: var(--thm-base);
     font-size: 12px;
     font-weight: 600;
     text-transform: uppercase;
     margin: 0;
     line-height: 20px;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.1em;
 }
 .team_one_deatils h2 {
-    font-size: 30px;
-    font-weight: 700;
+    font-size: 14px;
+    font-weight: 400;
     margin: 0;
+    text-transform: capitalize;
+    color: #707070;
 }
 .team_one_deatils a {
     color: #232323;
@@ -5282,6 +5287,36 @@ section{
 .team_one.about_team_one {
     padding-top: 232px;
 }
+.personal-detail{
+    box-shadow: 0px 10px 10px 0px rgb(0 0 0 / 3%);
+    padding: 10px;
+    text-align: center;
+}
+.personal-detail p{
+    margin: 0;
+}
+.personal-detail h4{
+    text-transform: capitalize;
+    margin: 0 0 0;
+    font-size: 16px;
+}
+.personal-detail-list ul{
+    padding: 0;
+    list-style: none;
+}
+.personal-detail-list ul li{
+    display: inline-block;
+    width: 47%;
+    border-bottom: 1px solid #efefef;
+    padding: 10px 0;
+    margin-right: 20px;
+}
+@media (max-width: 992px){
+    .personal-detail-list ul li{
+        width: 100%;
+    }
+}
+
 /*--------------------------------------------------------------
 # Brand Three
 --------------------------------------------------------------*/

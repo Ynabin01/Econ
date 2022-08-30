@@ -38,6 +38,11 @@
                         href="{{url('/admin/member-list')}}"><i class="fa fa-cog"></i> <span>Membership Form</span></a>
     </li>
     <!----------end------------>
+     <!--------customized by MD------------>
+     <li class="{{Request::is('admin/MemberList')?'active':''}}  treeview"><a
+        href="{{url('/admin/MemberList')}}"><i class="fa fa-cog"></i> <span>Membership List</span></a>
+</li>
+<!----------end------------>
         </ul>
     </section>
     <!-- /.sidebar -->

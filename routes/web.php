@@ -91,6 +91,12 @@ Route::prefix('admin')->group(function(){
     Route::get('/job/delete-banner-image/{category}/{id}/deleteimage3','JobController@deleteBannerImage')->name('deleteBannerImage');
     Route::get('/message-list', 'ContactController@MessageList')->name("MessageList");
     Route::get('/member-list', 'ContactController@MemberList')->name("Member");
+    Route::get('/MemberList', 'ContactController@MemberLists')->name("MemberLists");
+    Route::get('/MemberForm', 'ContactController@ShowMemberForm')->name("ShowMemberForm");
+
+
+    
+
 
 });
 Route::get('/memberlist',function(){

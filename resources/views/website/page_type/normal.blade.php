@@ -19,7 +19,11 @@
                             <div class="sidebar__single sidebar__category">
                                 <ul class="list-unstyled side-baer-menu">
                                     @foreach($childs as $child)
-                                        <li><a href="/{{$slug_detail->nav_name}}/{{$child->nav_name}}">{{$child->caption}}</a></li>
+                                        @if(isset($slug_detail1) && $child->nav_name==$slug_detail1->nav_name)
+                                            <li class="active">{{$child->caption}}</li>
+                                        @endif
+
+                                            <li><a href="/{{$slug_detail->nav_name}}/{{$child->nav_name}}">{{$child->caption}}</a></li>
                                     @endforeach
                                 </ul>
                             </div>

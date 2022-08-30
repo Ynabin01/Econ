@@ -9,7 +9,7 @@
                     <div class="col-md-6">
                         <div class="news-list">
                             <ul>
-                                <li><a href="/{{$notice->nav_name ?? ''}}">{{$notice->caption ?? ''}}</a></li>                           
+                                <li><a href="/{{$slug_detail->nav_name}}/{{$notice->nav_name ?? ''}}">{{$notice->caption ?? ''}}</a></li>                           
                             </ul>
                         </div>
                     </div>

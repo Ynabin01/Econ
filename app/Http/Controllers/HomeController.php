@@ -323,7 +323,7 @@ class HomeController extends Controller
         else {
             $childs = [];
         }
-        //
+        
         if(Navigation::all()->where('nav_name',$submenu)->count()>0){
             $subcategory_id = Navigation::all()->where('nav_name',$submenu)->first()->id;
             if(Navigation::all()->where('parent_page_id',$subcategory_id)->count()>0){
@@ -344,6 +344,10 @@ class HomeController extends Controller
                     $photos = NavigationItems::where('navigation_id',$navigataion_id)->get();
                     return view("website.gallery_view")->with(['partners'=>$partners,'photos'=>$photos,'jobs'=>$jobs,'menus'=>$menus,'sliders'=>$sliders,'about'=>$About,'global_setting'=>$global_setting,'slug_detail'=>$slug_detail,'slug_detail1'=>$slug_detail1]);
                 }
+                elseif(Navigation::all()->where('nav_name',$submenu)->where('page_type','News & Events')->count()>0){
+                    //$subcategory_type = Navigation::all()->where('nav_name',$submenu)->where('page_type','News & Events')->first()->page_type;//slug/slug2(group) 
+                      $subcategory_type = "Normal";
+                }             
                 else{
                     return redirect('/');//submenu is page_type=Group and its internal items are empty
                 }
@@ -353,7 +357,6 @@ class HomeController extends Controller
         else{
              $subcategory_type = null;
          }
-         //return $subcategory_type;
         if($subcategory_type == "Photo Gallery"){
             //return "return to page gallary";
             $photos = Navigation::query()->where('parent_page_id',$subcategory_id)->where('page_status','1')->latest()->get();

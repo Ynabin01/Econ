@@ -16,7 +16,7 @@
                       <li><a href="inner.html">{{$newsevent->short_content}}</a></li>
                     @endforeach
                 </ul>
-                <a href="/newsevent" class="thm-btn about_one__btn">View All</a>
+                <a href="/news-events" class="thm-btn about_one__btn">View All</a>
                 </div>
             </div>
         </div>

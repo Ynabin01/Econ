@@ -13,8 +13,8 @@ class HomeController extends Controller
     public function index(){
         $menus = Navigation::query()->where('nav_category','Main')->where('page_type','!=','Service')->where('page_type','!=','News & Events')->where('parent_page_id',0)->where('page_status','1')->orderBy('position','ASC')->get();
 
-         if(Navigation::query()->where('nav_category','Home')->where('nav_name', 'LIKE', "%notice%")->where('page_type','Group')->latest()->first()!=null){
-            $notice_id = Navigation::query()->where('nav_category','Home')->where('nav_name', 'LIKE', "%notice%")->where('page_type','Group')->latest()->first()->id;
+         if(Navigation::query()->where('nav_category','Main')->where('nav_name', 'LIKE', "%notice-page%")->where('page_type','Group')->latest()->first()!=null){
+            $notice_id = Navigation::query()->where('nav_category','Main')->where('nav_name', 'LIKE', "%notice-page%")->where('page_type','Group')->latest()->first()->id;
             $notices = Navigation::query()->where('parent_page_id',$notice_id)->latest()->get();
         }
         else{

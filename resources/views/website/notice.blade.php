@@ -7,7 +7,7 @@
             <div class="marquee">
                 <ul class="marquee-content-items">
                    @foreach ($notices as $notice)
-                   <li><a href="/notice-page">{{$notice->caption}}</a></li>   
+                   <li><a href="/notice-page/{{$notice->nav_name}}">{{$notice->caption}}</a></li>   
                    @endforeach
                 </ul>
             </div>

@@ -82,12 +82,12 @@
                         </div>
                         <div class="main-nav__main-navigation">
                             <ul class=" main-nav__navigation-box">
-                                <li class="current">
+                                <li @if(!isset($slug_detail)) class="current" @endif>
                                     <a href="/">Home</a>
                                 </li>
                                 <!--------start menu----------->
                                 @foreach ($menus as $menu)
-                                    <li><a href="{{ route('category', $menu->nav_name) }}">{{ $menu->caption }}</a>
+                                    <li @if(isset($slug_detail) && $menu->nav_name == $slug_detail->nav_name) class="current" @endif><a href="{{ route('category', $menu->nav_name) }}">{{ $menu->caption }}</a>
                                         <ul>
 
                                             @foreach($menu->childs as $submenu)                                                

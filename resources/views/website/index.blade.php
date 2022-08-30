@@ -6,7 +6,7 @@
     @include("website.slider")
     @include("website.aboutone")
     @include("website.message")
-    @include("website.exportable")
+    <!-- include("website.exportable") -->
     @include("website.newsevent")
     @include("website.partner")
     

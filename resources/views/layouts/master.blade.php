@@ -64,15 +64,15 @@ if (isset($normal)) {
     <!-- Fonts-->
     <link href='https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700&display=swap' rel="stylesheet">
     <!-- Css-->
-    <link rel="stylesheet" href="website/css/bootstrap.min.css">
-    <link rel="stylesheet" href="website/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="website/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="website/css/magnific-popup.css">
-    <link rel="stylesheet" href="website/css/fontawesome-all.min.css">
-    <link rel="stylesheet" href="website/css/jquery.mCustomScrollbar.min.css">
-    <link rel="stylesheet" href="website/css/agrikol_iconl.css">
+    <link rel="stylesheet" href="/website/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/website/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/website/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/website/css/magnific-popup.css">
+    <link rel="stylesheet" href="/website/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/website/css/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="/website/css/agrikol_iconl.css">
     <!-- Template styles -->
-    <link rel="stylesheet" href="website/css/style.css">
+    <link rel="stylesheet" href="/website/css/style.css">
     <link rel="stylesheet" href="/website/css/responsive.css">
 
 </head>
@@ -80,7 +80,7 @@ if (isset($normal)) {
 <body>
 
     <div class="preloader">
-        <img src="/website/images/econ.png" class="preloader__image" alt="">
+        <img src="website/images/econ.png" class="preloader__image" alt="">
     </div>
     <!-- /.preloader -->
 

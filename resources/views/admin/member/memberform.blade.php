@@ -6,7 +6,8 @@
         <div class="section-title">
             <h2>MEMBER LIST</h2>
         </div>
-        <form id="contactForm">
+        <form id="contactForm" action="/member-form/store" method="POST" autocomplete="on" enctype='multipart/form-data'>
+            @csrf
             <div class="row">
                 <div class="col-lg-6 col-sm-6">
                     <div class="form-group">
@@ -41,6 +42,11 @@
                         <textarea name="message" class="form-control" id="message" cols="30" rows="10" required
                             data-error="Write your message" placeholder="Contact Info"></textarea>
                         <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12">
+                    <div class="form-group">
+                      <input type="submit" value="login ">
                     </div>
                 </div>
             </div>

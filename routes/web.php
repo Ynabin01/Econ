@@ -13,6 +13,7 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\MemberListController;
 
 Auth::routes();
 
@@ -108,6 +109,7 @@ Route::get('/memberform',function(){
 
 
 Route::POST('member/store',[ContactController::class,'MemberformStore'])->name('memberstore');
+Route::POST('member-form/store',[MemberListController::class,'MemberListformStore'])->name('memberstore');
 
 Route::get('get_gallery_photos',[HomeController::class,'get_gallery_photos'])->name('get_gallery_photos');
 Route::get('gallery-view/{slug}',[HomeController::class,'GalleryView'])->name('galleryview');

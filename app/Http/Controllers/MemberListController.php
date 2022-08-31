@@ -8,6 +8,7 @@ class MemberListController extends Controller
 {
     //
     public function MemberListformStore(Request $req){
+        return $req;
         // $validated = $req->validate([
         //     'name' => 'required',
         //     'number' => 'required',

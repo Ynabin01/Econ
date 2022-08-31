@@ -231,6 +231,7 @@ if (isset($normal)) {
                                     <a href="mailto:econ.exportcouncil@gmail.com">{{ $global_setting->other }}</a>
                                 </p>
                                 <a href="tel:{{ $global_setting->phone }}">{{ $global_setting->phone }}</a>
+                               
                                 {{-- / <a
                                 href="tel:{{ $global_setting->phone_ne }}">{{ $global_setting->phone_ne }}</a> --}}
                                 <div class="site-footer__social">

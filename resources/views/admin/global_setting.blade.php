@@ -75,7 +75,7 @@
 
                 <div class="form-group col-md-6">
                     <label for="other">Other Link</label>
-                    <input type="text" id="other" name="page_keyword" class="form-control"
+                    <input type="text" id="other" name="other" class="form-control"
                            placeholder="Other Link" value="{{$global_setting->other}}">
                 </div>
                 <div class="form-group col-md-6">

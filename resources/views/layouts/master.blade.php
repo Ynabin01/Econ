@@ -208,22 +208,22 @@ if (isset($normal)) {
                                 <h3>Contact</h3>
                             </div>
                             <div class="footer-widget_contact">
-                                < <div>
-                                    {{ $global_setting->website_full_address }}
+                                 <div>
+                                    {{ $global_setting->website_full_address }}<br>
                                     {{ $global_setting->address_ne }}
                             </div>
                             <p><a
-                                    href="mailto:{{ $global_setting->site_email }}">{{ $global_setting->site_email }}</a>
+                                    href="mailto:{{ $global_setting->site_email }}">{{ $global_setting->site_email }}</a><br>
                                 <a href="mailto:econ.exportcouncil@gmail.com">{{ $global_setting->other }}</a>
                             </p>
                             <a href="tel:{{ $global_setting->phone }}">{{ $global_setting->phone }}</a>
                             {{-- / <a
                                 href="tel:{{ $global_setting->phone_ne }}">{{ $global_setting->phone_ne }}</a> --}}
                             <div class="site-footer__social">
-                                <a href="{{$global_setting->facebook}}"><i class="fab fa-facebook-square"></i></a>
-                                <a href="{{$global_setting->twitter}}"><i class="fab fa-twitter"></i></a>
-                                <a href="{{$global_setting->instagram}}"><i class="fab fa-instagram"></i></a>
-                                <a href="#"><i class="fab fa-dribbble"></i></a>
+                                <a href="{{$global_setting->facebook ?? ''}}"><i class="fab fa-facebook-square"></i></a>
+                                <a href="{{$global_setting->twitter ?? ''}}"><i class="fab fa-twitter"></i></a>
+                                <a href="{{$global_setting->instagram ?? ''}}"><i class="fab fa-instagram"></i></a>
+                                <a href="{{$global_setting->dribbble ?? ''}}"><i class="fab fa-dribbble"></i></a>
                             </div>
                         </div>
                     </div>

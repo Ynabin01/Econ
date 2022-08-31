@@ -23,6 +23,10 @@ class GlobalSetting extends Model
     		'site_logo_nepali',
     		'site_status',
             'extra_one',
+			'other',
+			'facebook',
+			'twitter',
+			'linkedin',
             'extra_tow'
     ];
 	public static function getSetting(){

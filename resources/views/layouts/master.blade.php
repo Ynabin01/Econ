@@ -1,4 +1,20 @@
 @php
+
+$normal_gallary_notice = app\Models\Navigation::query()
+    ->where('nav_category', 'Main')
+    ->where('page_type', '!=', 'Job')
+    ->where('page_type', '!=', 'Photo Gallery')
+    ->where('page_type', '!=', 'Notice')
+    ->where('parent_page_id', 0)
+    ->where('page_status', '1')
+    ->orderBy('position', 'ASC')
+    ->get();
+if (isset($normal)) {
+    $seo = $normal;
+} elseif (isset($job)) {
+    $seo = $job;
+}
+
 $menus = App\Models\Navigation::query()
     ->where('nav_category', 'Main')
     ->where('page_type', '!=', 'Service')
@@ -94,12 +110,14 @@ if (isset($normal)) {
                 <div class="container">
                     <div class="topbar-one__left">
                         <a href="mailto:info@nepalexport.org.np"><span class="icon-message"></span>
-                            info@nepalexport.org.np</a>
-                        <a href="tel:97714441337"><span class="icon-phone-call"></span>+977 1 4441337</a>
+                            {{ $global_setting->site_email }}</a>
+                        <a href="tel:97714441337"><span class="icon-phone-call"></span>{{ $global_setting->phone }}</a>
                     </div>
                     <div class="topbar-one__middle">
                         <a href="/index" class="main-nav__logo">
-                            <img src="website/images/econ.png" class="main-logo" alt="Awesome Image" />
+                            {{-- <img src="website/images/econ.png" class="main-logo" alt="Awesome Image" /> --}}
+                            <img src="/uploads/icons/{{ $global_setting->site_logo }}"
+                                        alt="_logo" title="" class="main-logo" />
                         </a>
                     </div>
                     <div class="topbar-one__right">
@@ -175,7 +193,7 @@ if (isset($normal)) {
                             <div class="footer-widget_about_text">
                                 <div class="logo">
                                     <a href="/"><img src="/uploads/icons/{{ $global_setting->site_logo }}"
-                                        alt="footer_img" /></a>
+                                            alt="footer_img" /></a>
 
                                 </div>
                                 <div class="text">
@@ -190,15 +208,11 @@ if (isset($normal)) {
                                 <h3>Useful Links</h3>
                             </div>
                             <ul class="footer-widget__links-list list-unstyled">
-                                <li><a href="/who-we-are/about">About Us</a></li>
-                                <li><a href="/who-we-are/mission">Vision & Mission</a></li>
-                                <li><a href="/who-we-are/our-team">Managment Team</a></li>
-                                <li><a href="/who-we-are/advisory-committee">Advisory Committee</a></li>
-                                <li><a href="/services1">Services</a></li>
-                                <li><a href="/who-we-are/activities">Activities</a></li>
-                                <li><a href="/">Export News</a></li>
-                                <li><a href="/">Eduction of Export</a></li>
-                                <li><a href="/">Membership Document</a></li>
+                                <li><a href="">Home</a></li>
+                                @foreach ($normal_gallary_notice->where('page_type', '=', 'Group') as $dat)
+                                    <li><a href="{{ route('category', $dat->nav_name) }}">{{ $dat->caption }}</a>
+                                    </li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
@@ -208,46 +222,49 @@ if (isset($normal)) {
                                 <h3>Contact</h3>
                             </div>
                             <div class="footer-widget_contact">
-                                 <div>
+                                <div>
                                     {{ $global_setting->website_full_address }}<br>
                                     {{ $global_setting->address_ne }}
-                            </div>
-                            <p><a
-                                    href="mailto:{{ $global_setting->site_email }}">{{ $global_setting->site_email }}</a><br>
-                                <a href="mailto:econ.exportcouncil@gmail.com">{{ $global_setting->other }}</a>
-                            </p>
-                            <a href="tel:{{ $global_setting->phone }}">{{ $global_setting->phone }}</a>
-                            {{-- / <a
+                                </div>
+                                <p><a
+                                        href="mailto:{{ $global_setting->site_email }}">{{ $global_setting->site_email }}</a><br>
+                                    <a href="mailto:econ.exportcouncil@gmail.com">{{ $global_setting->other }}</a>
+                                </p>
+                                <a href="tel:{{ $global_setting->phone }}">{{ $global_setting->phone }}</a>
+                                {{-- / <a
                                 href="tel:{{ $global_setting->phone_ne }}">{{ $global_setting->phone_ne }}</a> --}}
-                            <div class="site-footer__social">
-                                <a href="{{$global_setting->facebook ?? ''}}"><i class="fab fa-facebook-square"></i></a>
-                                <a href="{{$global_setting->twitter ?? ''}}"><i class="fab fa-twitter"></i></a>
-                                <a href="{{$global_setting->instagram ?? ''}}"><i class="fab fa-instagram"></i></a>
-                                <a href="{{$global_setting->dribbble ?? ''}}"><i class="fab fa-dribbble"></i></a>
+                                <div class="site-footer__social">
+                                    <a href="{{ $global_setting->facebook ?? '' }}"><i
+                                            class="fab fa-facebook-square"></i></a>
+                                    <a href="{{ $global_setting->twitter ?? '' }}"><i class="fab fa-twitter"></i></a>
+                                    <a href="{{ $global_setting->instagram ?? '' }}"><i
+                                            class="fab fa-instagram"></i></a>
+                                    <a href="{{ $global_setting->dribbble ?? '' }}"><i
+                                            class="fab fa-dribbble"></i></a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-    </div>
-    </footer>
-    <!-- End Footer -->
+        </footer>
+        <!-- End Footer -->
 
-    <!-- Footer Bottom -->
-    <div class="site-footer_bottom">
-        <div class="container">
-            <div class="site-footer_bottom_copyright">
-                <p>@ All copyright 2022, Export Council of Nepal</p>
-            </div>
-            <div class="site-footer_bottom_menu">
-                <ul class="list-unstyled">
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Use</a></li>
-                </ul>
+        <!-- Footer Bottom -->
+        <div class="site-footer_bottom">
+            <div class="container">
+                <div class="site-footer_bottom_copyright">
+                    <p>@ All copyright 2022, Export Council of Nepal</p>
+                </div>
+                <div class="site-footer_bottom_menu">
+                    <ul class="list-unstyled">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
-    <!-- End Footer Bottom -->
+        <!-- End Footer Bottom -->
 
     </div><!-- /.page-wrapper -->
 

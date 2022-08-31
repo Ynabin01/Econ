@@ -124,8 +124,8 @@ if (isset($normal)) {
                         <div class="topbar-one__social">
                             <a href="{{ $global_setting->facebook ?? '' }}"><i class="fab fa-facebook-square"></i></a>
                             <a href="{{ $global_setting->twitter ?? '' }}"><i class="fab fa-twitter"></i></a>
-                            <a href="{{ $global_setting->linkedin ?? '' }}"><i class="fab fa-linkedin"></i></a>
-                            <a href="{{ $global_setting->dribbble ?? '' }}"><i class="fab fa-dribbble"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-dribbble"></i></a>
                         </div>
                     </div>
                 </div>
@@ -237,9 +237,9 @@ if (isset($normal)) {
                                     <a href="{{ $global_setting->facebook ?? '' }}"><i
                                             class="fab fa-facebook-square"></i></a>
                                     <a href="{{ $global_setting->twitter ?? '' }}"><i class="fab fa-twitter"></i></a>
-                                    <a href="{{ $global_setting->linkedin ?? '' }}"><i
+                                    <a href="#"><i
                                             class="fab fa-linkedin"></i></a>
-                                    <a href="{{ $global_setting->dribbble ?? '' }}"><i
+                                    <a href="#"><i
                                             class="fab fa-dribbble"></i></a>
                                 </div>
                             </div>

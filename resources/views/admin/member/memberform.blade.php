@@ -32,14 +32,14 @@
                 </div>
                 <div class="col-lg-6 col-sm-6">
                     <div class="form-group">
-                        <input type="text" name="contact_info" id="name" class="form-control" required
+                        <input type="text" name="contact_person" id="name" class="form-control" required
                             data-error="Please enter your name" placeholder="Contact Person">
                         <div class="help-block with-errors"></div>
                     </div>
                 </div>
                 <div class="col-lg-12 col-md-12">
                     <div class="form-group">
-                        <textarea name="contact_person" class="form-control" id="message" cols="30" rows="10" required
+                        <textarea name="contact_info" class="form-control" id="message" cols="30" rows="10" required
                             data-error="Write your message" placeholder="Contact Info"></textarea>
                         <div class="help-block with-errors"></div>
                     </div>

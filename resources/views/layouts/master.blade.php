@@ -1,6 +1,6 @@
 @php
 
-$normal_gallary_notice = app\Models\Navigation::query()
+$normal_gallary_notice = App\Models\Navigation::query()
     ->where('nav_category', 'Main')
     ->where('page_type', '!=', 'Job')
     ->where('page_type', '!=', 'Photo Gallery')
@@ -44,7 +44,7 @@ if (isset($normal)) {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <!-----SEO--------->
-    <title>ECON || Export Council of Nepal</title>
+    <title> {{ $seo->page_title ?? $global_setting->page_title }}</title>
 
     <meta name="title" content="{{ $seo->page_titile ?? $global_setting->page_title }}">
     <meta name="description" content="{{ $seo->page_description ?? $global_setting->page_description }}">

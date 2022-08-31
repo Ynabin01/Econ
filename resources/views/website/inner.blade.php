@@ -1,4 +1,11 @@
 @extends('layouts.master')
+
+
+{{-- @push('title')
+    Home
+@endpush --}}
+
+
 @section('content')
     <section class="page-header">
         <div class="container">

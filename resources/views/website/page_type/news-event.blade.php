@@ -1,4 +1,5 @@
 @extends('layouts.master')
+
 @section('content')
     @include('website.page_type.banner')
 

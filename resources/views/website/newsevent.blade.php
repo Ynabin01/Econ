@@ -13,7 +13,7 @@
                 <div class="news-list">
                 <ul>
                     @foreach ($newsevents as $newsevent)
-                      <li><a href="/news-events/{{$newsevent->nav_name}}">{{$newsevent->short_content}}</a></li>
+                      <li><a href="/news-events/{{$newsevent->nav_name}}">{{$newsevent->caption}}</a></li>
                     @endforeach
                 </ul>
                 <a href="/newsevents" class="thm-btn about_one__btn">View All</a>

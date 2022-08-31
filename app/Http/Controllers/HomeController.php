@@ -47,8 +47,8 @@ class HomeController extends Controller
             $exportables = [];
         }
         //newsevent
-        if(Navigation::query()->where('nav_category','Home')->where('nav_name', 'LIKE', "%newsevent%")->where('page_type','Group')->latest()->first()!=null){
-            $newsevent_id = Navigation::query()->where('nav_category','Home')->where('nav_name', 'LIKE', "%newsevent%")->where('page_type','Group')->latest()->first()->id;
+        if(Navigation::query()->where('nav_category','Main')->where('nav_name', 'LIKE', "%news-events%")->where('page_type','Group')->latest()->first()!=null){
+            $newsevent_id = Navigation::query()->where('nav_category','Main')->where('nav_name', 'LIKE', "%news-events%")->where('page_type','Group')->latest()->first()->id;
             $newsevents = Navigation::query()->where('parent_page_id',$newsevent_id)->latest()->get();
 
         }
@@ -379,6 +379,7 @@ class HomeController extends Controller
         }
         elseif($subcategory_type == "Normal"){
             $normal = Navigation::find($subcategory_id);
+      
             return view("website.page_type.normal")->with(['childs'=>$childs,"partners"=>$partners,'message'=>$message,'normal'=>$normal,'jobs'=>$jobs,'menus'=>$menus,'sliders'=>$sliders,'about'=>$About,'global_setting'=>$global_setting,'slug_detail'=>$slug_detail,'slug_detail1'=>$slug_detail1]);
         }
         elseif($subcategory_type == "Group"){

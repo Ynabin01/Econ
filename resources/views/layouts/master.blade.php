@@ -1,13 +1,39 @@
 @php
-    $menus = App\Models\Navigation::query()->where('nav_category','Main')->where('page_type','!=','Service')->where('page_type','!=','News & Events')->where('parent_page_id',0)->where('page_status','1')->orderBy('position','ASC')->get();
-    $global_setting = App\Models\GlobalSetting::all()->first();
-    $services = App\Models\Navigation::query()->where('page_type','Service')->where('page_status','1')->latest()->paginate(8);
-    if(isset($normal)){
-        $seo = $normal;
-    }
-    elseif(isset($job)){
-        $seo = $job;
-    }
+
+$normal_gallary_notice = App\Models\Navigation::query()
+    ->where('nav_category', 'Main')
+    ->where('page_type', '!=', 'Job')
+    ->where('page_type', '!=', 'Photo Gallery')
+    ->where('page_type', '!=', 'Notice')
+    ->where('parent_page_id', 0)
+    ->where('page_status', '1')
+    ->orderBy('position', 'ASC')
+    ->get();
+if (isset($normal)) {
+    $seo = $normal;
+} elseif (isset($job)) {
+    $seo = $job;
+}
+
+$menus = App\Models\Navigation::query()
+    ->where('nav_category', 'Main')
+    ->where('page_type', '!=', 'Service')
+    ->where('page_type', '!=', 'News & Events')
+    ->where('parent_page_id', 0)
+    ->where('page_status', '1')
+    ->orderBy('position', 'ASC')
+    ->get();
+$global_setting = App\Models\GlobalSetting::all()->first();
+$services = App\Models\Navigation::query()
+    ->where('page_type', 'Service')
+    ->where('page_status', '1')
+    ->latest()
+    ->paginate(8);
+if (isset($normal)) {
+    $seo = $normal;
+} elseif (isset($job)) {
+    $seo = $job;
+}
 @endphp
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +43,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ECON || Export Council of Nepal</title>
+
+    <!-----SEO--------->
+    <title> {{ $seo->page_title ?? $global_setting->page_title }}</title>
+
+    <meta name="title" content="{{ $seo->page_titile ?? $global_setting->page_title }}">
+    <meta name="description" content="{{ $seo->page_description ?? $global_setting->page_description }}">
+    <meta name="keywords" content="{{ $seo->page_keyword ?? $global_setting->page_keyword }}">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="1 days">
+    <meta name="author" content="{{ $global_setting->site_name ?? '' }}">
+
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ $global_setting->website_full_address ?? '' }}">
+    <meta property="og:title" content="{{ $seo->page_title ?? $global_setting->page_title }}">
+    <meta property="og:description" content="{{ $seo->page_description ?? $global_setting->page_description }}">
+    <meta property="og:image" content="{{ $seo->banner_image ?? '/uploads/icons/' . $global_setting->site_logo }}">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ $global_setting->website_full_address ?? '' }}">
+    <meta property="twitter:title" content="{{ $seo->page_title ?? $global_setting->page_title }}">
+    <meta property="twitter:description" content="{{ $seo->page_description ?? $global_setting->page_description }}">
+    <meta property="twitter:image"
+        content="{{ $seo->banner_image ?? '/uploads/icons/' . $global_setting->site_logo }}">
+
+    <!-----END SEO------->
+
+
 
     <link rel="icon" type="image/png" href="/website/images/favicon.png">
 
@@ -40,7 +97,7 @@
 <body>
 
     <div class="preloader">
-        <img src="/website/images/econ.png" class="preloader__image" alt="">
+        <img src="website/images/econ.png" class="preloader__image" alt="">
     </div>
     <!-- /.preloader -->
 
@@ -54,19 +111,21 @@
                 <div class="container">
                     <div class="topbar-one__left">
                         <a href="mailto:info@nepalexport.org.np"><span class="icon-message"></span>
-                            info@nepalexport.org.np</a>
-                        <a href="tel:97714441337"><span class="icon-phone-call"></span>+977 1 4441337</a>
+                            {{ $global_setting->site_email }}</a>
+                        <a href="tel:97714441337"><span class="icon-phone-call"></span>{{ $global_setting->phone }}</a>
                     </div>
                     <div class="topbar-one__middle">
                         <a href="/index" class="main-nav__logo">
-                            <img src="website/images/econ.png" class="main-logo" alt="Awesome Image" />
+                            {{-- <img src="website/images/econ.png" class="main-logo" alt="Awesome Image" /> --}}
+                            <img src="/uploads/icons/{{ $global_setting->site_logo }}"
+                                        alt="_logo" title="" class="main-logo" />
                         </a>
                     </div>
                     <div class="topbar-one__right">
                         <div class="topbar-one__social">
-                            <a href="#"><i class="fab fa-facebook-square"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="{{ $global_setting->facebook ?? '' }}"><i class="fab fa-facebook-square"></i></a>
+                            <a href="{{ $global_setting->twitter ?? '' }}"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
                             <a href="#"><i class="fab fa-dribbble"></i></a>
                         </div>
                     </div>
@@ -83,20 +142,23 @@
                         </div>
                         <div class="main-nav__main-navigation">
                             <ul class=" main-nav__navigation-box">
-                                <li @if(!isset($slug_detail)) class="current" @endif>
+                                <li @if (!isset($slug_detail)) class="current" @endif>
                                     <a href="/">Home</a>
                                 </li>
                                 <!--------start menu----------->
                                 @foreach ($menus as $menu)
-                                    <li @if(isset($slug_detail) && $menu->nav_name == $slug_detail->nav_name) class="current" @endif><a href="{{ route('category', $menu->nav_name) }}">{{ $menu->caption }}</a>
+                                    <li @if (isset($slug_detail) && $menu->nav_name == $slug_detail->nav_name) class="current" @endif><a
+                                            href="{{ route('category', $menu->nav_name) }}">{{ $menu->caption }}</a>
                                         <ul>
 
-                                            @foreach($menu->childs as $submenu)                                                
-                                                    <li><a href="{{route('subcategory',[$menu->nav_name,$submenu->nav_name])}}">{{$submenu->caption}}</a></li>                                                
+                                            @foreach ($menu->childs as $submenu)
+                                                <li><a
+                                                        href="{{ route('subcategory', [$menu->nav_name, $submenu->nav_name]) }}">{{ $submenu->caption }}</a>
+                                                </li>
                                             @endforeach
                                         </ul>
-                                         
-                                     </li>
+
+                                    </li>
                                 @endforeach
                                 <li class="dropdown">
                                     <a href="#">Members</a>
@@ -131,12 +193,13 @@
                         <div class="footer-widget__column footer-widget__about">
                             <div class="footer-widget_about_text">
                                 <div class="logo">
-                                    <a href="index"><img src="/website/images/econ-fit.png" alt="logo"></a>
+                                    <a href="/"><img src="/uploads/icons/{{ $global_setting->site_logo }}"
+                                            alt="footer_img" /></a>
+
                                 </div>
-                                <p>Export Council of Nepal, a council of the Nepalese trading firms/companies
-                                    (traditional garment, handicraft and woolen goods exporters), was established in
-                                    1996 by a group of that kind of business entrepreneurs who have been regularly
-                                    involving in export business.</p>
+                                <div class="text">
+                                    {{ $global_setting->page_description }}
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -146,15 +209,11 @@
                                 <h3>Useful Links</h3>
                             </div>
                             <ul class="footer-widget__links-list list-unstyled">
-                                <li><a href="/who-we-are/about">About Us</a></li>
-                                <li><a href="/who-we-are/mission">Vision & Mission</a></li>
-                                <li><a href="/who-we-are/our-team">Managment Team</a></li>
-                                <li><a href="/who-we-are/advisory-committee">Advisory Committee</a></li>
-                                <li><a href="/services1">Services</a></li>
-                                <li><a href="/who-we-are/activities">Activities</a></li>
-                                <li><a href="/">Export News</a></li>
-                                <li><a href="/">Eduction of Export</a></li>
-                                <li><a href="/">Membership Document</a></li>
+                                <li><a href="">Home</a></li>
+                                @foreach ($normal_gallary_notice->where('page_type', '=', 'Group') as $dat)
+                                    <li><a href="{{ route('category', $dat->nav_name) }}">{{ $dat->caption }}</a>
+                                    </li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
@@ -164,18 +223,26 @@
                                 <h3>Contact</h3>
                             </div>
                             <div class="footer-widget_contact">
-                                <p>Post Box No:13943</p>
-                                <p>Bhagabatisthan, Thamel <br>Kathmandu, Nepal.</p>
-                                <p><a href="mailto:info@nepalexport.org.np">info@nepalexport.org.np</a>
-                                    <a href="mailto:econ.exportcouncil@gmail.com">econ.exportcouncil@gmail.com</a>
+                                <div>
+                                    {{ $global_setting->website_full_address }}<br>
+                                    {{ $global_setting->address_ne }}
+                                </div>
+                                <p><a
+                                        href="mailto:{{ $global_setting->site_email }}">{{ $global_setting->site_email }}</a><br>
+                                    <a href="mailto:econ.exportcouncil@gmail.com">{{ $global_setting->other }}</a>
                                 </p>
-                                <a href="tel:97714441337">+977 1 4441337</a> / <a
-                                    href="tel:97714412251">+977-1-4412251</a>
+                                <a href="tel:{{ $global_setting->phone }}">{{ $global_setting->phone }}</a>
+                               
+                                {{-- / <a
+                                href="tel:{{ $global_setting->phone_ne }}">{{ $global_setting->phone_ne }}</a> --}}
                                 <div class="site-footer__social">
-                                    <a href="#"><i class="fab fa-facebook-square"></i></a>
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                    <a href="#"><i class="fab fa-instagram"></i></a>
-                                    <a href="#"><i class="fab fa-dribbble"></i></a>
+                                    <a href="{{ $global_setting->facebook ?? '' }}"><i
+                                            class="fab fa-facebook-square"></i></a>
+                                    <a href="{{ $global_setting->twitter ?? '' }}"><i class="fab fa-twitter"></i></a>
+                                    <a href="#"><i
+                                            class="fab fa-linkedin"></i></a>
+                                    <a href="#"><i
+                                            class="fab fa-dribbble"></i></a>
                                 </div>
                             </div>
                         </div>

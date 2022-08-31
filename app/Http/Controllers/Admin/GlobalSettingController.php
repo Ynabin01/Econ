@@ -20,6 +20,7 @@ class GlobalSettingController extends Controller
 
     public function updateSettings(Request $request)
     {
+
         $request->offsetUnset('_token'); // Confirmed _token field is gone.
         $data = $request->all();
         $setting = GlobalSetting::find(1);

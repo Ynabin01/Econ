@@ -86,9 +86,9 @@
                                         <td>{{ $member->membership_no ?? '' }}</td>
                                         <td>{{ $member->company_name ?? '' }}</td>
                                         <td>{{ $member->address ?? '' }}</td>
-                                        <td>{{ $member->contact_info ?? '' }}</td>
                                         <td>{{ $member->contact_person ?? '' }}</td>
-                                        <td><a href="route('contactDelete',$member->id"><button type="button"
+                                        <td>{{ $member->contact_info ?? '' }}</td>
+                                        <td><a href="{{route('MemberListsDelete',$member->id)}}"><button type="button"
                                                     class="btn btn-danger btn-sm">Delete</button></td>
                                     </tr>
                                 @endforeach

@@ -175,48 +175,15 @@ class ContactController extends Controller
         //return $navigations;
         return view('admin.job.message-list', compact('contacts','categories'));
     }
-    public function MemberList(){
-        //$navigations  = Navigation::where('page_type','Job')->orderBy('position','ASC')->get();
-        $members = Memberform::all();
-
-       // return $members;
-        //return $jobs;
-        //return $jobs->navigation;
-        $categories = Navigation::where('page_type','Group')->where('parent_page_id',0)->get();
-        //return $navigations;
-        return view('admin.member.membership-list', compact('members','categories'));
-    }
-
-
-    public function ShowMemberForm(){
-        //$navigations  = Navigation::where('page_type','Job')->orderBy('position','ASC')->get();
-        // $members = Memberform::all();
-
-       // return $members;
-        //return $jobs;
-        //return $jobs->navigation;
-        // $categories = Navigation::where('page_type','Group')->where('parent_page_id',0)->get();
-        //return $navigations;
-        return view('admin.member.memberform');
-    }
 
 
 
 
 
-    public function MemberLists(){
-        //$navigations  = Navigation::where('page_type','Job')->orderBy('position','ASC')->get();
-        $members = MemberList::all();
-        // return $members;
 
-       // return $members;
-        //return $jobs;
-        //return $jobs->navigation;
-        $categories = Navigation::where('page_type','Group')->where('parent_page_id',0)->get();
-        //return $navigations;
-        return view('admin.member.memberfinal-list', compact('members','categories'));
-    }
-    
+
+
+  
     public function Contactelete($slug){
         Contact::find($slug)->delete();
         return redirect()->back();

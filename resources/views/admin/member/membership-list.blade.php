@@ -111,12 +111,12 @@
                                         <td>{{$member->international ?? ''}}</td>
                                         <td>{{$member->accept_policies ?? ''}}</td>
                                         
-                                       <td><a href="route('contactDelete',$member->id"><button type="button" class="btn btn-danger btn-sm">Delete</button></td>
+                                       <td><a href="{{route('membershipformDelete',$member->id)}}"><button type="button" class="btn btn-danger btn-sm">Delete</button></td>
                                     </tr>
                                     @endforeach
                             </tbody>
                         </table>
-                    </div>
+                    </div>MemberListDeleteMemberListDelete
                 </div>
             </div>
         </div>

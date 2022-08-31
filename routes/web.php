@@ -91,21 +91,18 @@ Route::prefix('admin')->group(function(){
     Route::post('/jobupdate/{category}/{id}','JobController@JobUpdate');
     Route::get('/job/delete-banner-image/{category}/{id}/deleteimage3','JobController@deleteBannerImage')->name('deleteBannerImage');
     Route::get('/message-list', 'ContactController@MessageList')->name("MessageList");
-    Route::get('/member-list', 'ContactController@MemberList')->name("Member");
-    Route::get('/MemberList', 'ContactController@MemberLists')->name("MemberLists");
-    Route::get('/MemberForm', 'ContactController@ShowMemberForm')->name("ShowMemberForm");
+    Route::get('/member-list', 'MemberListController@MemberList')->name("Member");
+    Route::get('/MemberList', 'MemberListController@MemberLists')->name("MemberLists");
+    Route::get('/MemberList/delete/{slug}', 'MemberListController@MemberListsDelete')->name("MemberListsDelete");
+    Route::get('/membershipform/delete/{slug}', 'MemberListController@membershipformDelete')->name("membershipformDelete");
 
-
-    
+    Route::get('/MemberForm', 'MemberListController@ShowMemberForm')->name("ShowMemberForm");    
 
 
 });
-Route::get('/memberlist',function(){
-    return view("website.memberlist");
-});
-Route::get('/memberform',function(){
-    return view("website.memberform");
-});
+
+Route::get('/memberlist', 'MemberListController@memberlistShow')->name("memberlistShow");    
+Route::get('/memberform', 'MemberListController@memberformShow')->name("memberformShow");   
 
 
 Route::POST('member/store',[ContactController::class,'MemberformStore'])->name('memberstore');

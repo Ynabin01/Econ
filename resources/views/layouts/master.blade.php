@@ -125,7 +125,7 @@ if (isset($normal)) {
                         <div class="topbar-one__social">
                             <a href="{{ $global_setting->facebook ?? '' }}" target="_blank" ><i class="fab fa-facebook-square"></i></a>
                             <a href="{{ $global_setting->twitter ?? '' }}" target="_blank"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-linkedin" target="_blank"></i></a>
+                            <a href="{{ $global_setting->linkedin ?? '' }}"><i class="fab fa-linkedin" target="_blank"></i></a>
                             <a href="#"><i class="fab fa-dribbble" target="_blank"></i></a>
                         </div>
                     </div>

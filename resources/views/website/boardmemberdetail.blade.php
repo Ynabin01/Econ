@@ -13,9 +13,7 @@
                 </div>
                 <div class="col-lg-9 col-md-6">
                     <div class="personal-detail-list">
-                        <ul>
                             @php echo $boardmemberdetail->long_content ; @endphp
-                        </ul>
                     </div>
                 </div>
             </div>

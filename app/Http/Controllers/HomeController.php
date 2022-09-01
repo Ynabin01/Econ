@@ -429,8 +429,11 @@ class HomeController extends Controller
         return view("website.normal")->with(['message'=>$message,'slug_detail'=>$normal,'normal'=>$normal,'menus'=>$menus,'global_setting'=>$global_setting,'job_slug'=>$slug]);
     }
     public function MemberDetail($id){
+        
         $boardmemberdetail = Navigation::find($id);
-        return view("website.boardmemberdetail",compact('boardmemberdetail'));
+        $slug_detail = array("nav_name"=>"who-we-are/board-member", "caption"=>"Board Member");
+        $slug_detail1 = $boardmemberdetail;
+        return view("website.boardmemberdetail",compact('boardmemberdetail','slug_detail','slug_detail1'));
     }
     public function allCategory(){
         $job_categories = Navigation::all()->where('nav_category','Main')->where('page_type','Group')->where('banner_image','!=',null);

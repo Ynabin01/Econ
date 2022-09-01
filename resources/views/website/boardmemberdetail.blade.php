@@ -1,6 +1,8 @@
 @extends('layouts.master')
 
 @section('content')
+@include('website.page_type.banner')
+
     <section class="team_detail">
         <div class="container">
             <div class="row">

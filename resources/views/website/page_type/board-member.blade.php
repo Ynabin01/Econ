@@ -2,6 +2,7 @@
 
 @section('content')
     
+@include('website.page_type.banner')
 
     <section class="team_one">
         <div class="container">

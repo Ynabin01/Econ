@@ -147,7 +147,7 @@ if (isset($normal)) {
                                 </li>
                                 <!--------start menu----------->
                                 @foreach ($menus as $menu)
-                                    <li @if (isset($slug_detail) && $menu->nav_name == $slug_detail->nav_name) class="current" @endif><a
+                                    <li @if (isset($slug_detail) && $menu['nav_name'] == $slug_detail['nav_name']) class="current" @endif><a
                                             href="{{ route('category', $menu->nav_name) }}">{{ $menu->caption }}</a>
                                         <ul>
 

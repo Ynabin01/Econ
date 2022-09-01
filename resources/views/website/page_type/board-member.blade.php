@@ -2,10 +2,11 @@
 
 @section('content')
     
-@foreach($boardmembers as $boardmember)
+
     <section class="team_one">
         <div class="container">
             <div class="row">
+                @foreach($boardmembers as $boardmember)
                 <div class="col-xl-3 col-lg-3 col-md-6">
                     <div class="team_one_single">
                         <a href="{{route('boardmemberdetail',$boardmember->id)}}">
@@ -18,9 +19,10 @@
                             </div>
                         </a>
                     </div>
-                </div>    
+                </div>  
+                @endforeach    
             </div>
         </div>
     </section>
-@endforeach    
+  
 @endsection

@@ -22,9 +22,9 @@
                                     @foreach($childs as $child)
                                         @if(isset($slug_detail1) && $child->nav_name==$slug_detail1->nav_name)
                                             <li class="active">{{$child->caption}}</li>
-                                        @endif
-
+                                        @else
                                             <li><a href="/{{$slug_detail->nav_name}}/{{$child->nav_name}}">{{$child->caption}}</a></li>
+                                        @endif
                                     @endforeach
                                 </ul>
                             </div>

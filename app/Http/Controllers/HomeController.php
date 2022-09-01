@@ -340,10 +340,11 @@ class HomeController extends Controller
                     //return $subcategory_type;
                 }
                 elseif(Navigation::all()->where('nav_name',$submenu)->where('page_type','Photo Gallery')->count()>0){
-                    $navigataion_id = Navigation::where('nav_name',$submenu)->first()->id;        
-                    $photos = NavigationItems::where('navigation_id',$navigataion_id)->get();
-                    return view("website.gallery_view")->with(['partners'=>$partners,'photos'=>$photos,'jobs'=>$jobs,'menus'=>$menus,'sliders'=>$sliders,'about'=>$About,'global_setting'=>$global_setting,'slug_detail'=>$slug_detail,'slug_detail1'=>$slug_detail1]);
+                    $subcategory_type = "Photo Gallery";
                 }
+                // elseif(Navigation::all()->where('nav_name',$submenu)->where('page_type','Board Member')->count()>0){
+                //     $subcategory_type = "Board Member";
+                // }
                 elseif(Navigation::all()->where('nav_name',$submenu)->where('page_type','News & Events')->count()>0){
                     //$subcategory_type = Navigation::all()->where('nav_name',$submenu)->where('page_type','News & Events')->first()->page_type;//slug/slug2(group) 
                       $subcategory_type = "Normal";
@@ -359,8 +360,17 @@ class HomeController extends Controller
          }
         if($subcategory_type == "Photo Gallery"){
             //return "return to page gallary";
-            $photos = Navigation::query()->where('parent_page_id',$subcategory_id)->where('page_status','1')->latest()->get();
-            return view("website.gallery")->with(['partners'=>$partners,'photos'=>$photos,'jobs'=>$jobs,'menus'=>$menus,'sliders'=>$sliders,'about'=>$About,'global_setting'=>$global_setting,'slug_detail'=>$slug_detail,'slug_detail1'=>$slug_detail1]);
+            $navigataion_id = Navigation::where('nav_name',$submenu)->first()->id;        
+            $photos = NavigationItems::where('navigation_id',$navigataion_id)->get();
+            
+            return view("website.page_type.gallery")->with(['partners','photos'=>$photos,'jobs'=>$jobs,'menus'=>$menus,'sliders'=>$sliders,'about'=>$About,'global_setting'=>$global_setting,'slug_detail'=>$slug_detail,'slug_detail1'=>$slug_detail1]);
+        }
+        if($subcategory_type == "Board Member"){
+            //return "return to page gallary";
+         
+            $boardmembers  = Navigation::where('parent_page_id',$subcategory_id)->get();
+                      
+            return view("website.page_type.board-member")->with(['partners','boardmembers'=>$boardmembers,'jobs'=>$jobs,'menus'=>$menus,'sliders'=>$sliders,'about'=>$About,'global_setting'=>$global_setting,'slug_detail'=>$slug_detail,'slug_detail1'=>$slug_detail1]);
         }
         elseif($subcategory_type == "Video Gallery"){
             $photos = NavigationVideoItems::where('navigation_id',$subcategory_id)->get();
@@ -417,6 +427,10 @@ class HomeController extends Controller
         $global_setting = GlobalSetting::all()->first(); 
         $menus = Navigation::query()->where('nav_category','Main')->where('page_type','!=','Job')->where('page_type','!=','Photo Gallery')->where('page_type','!=','Notice')->where('parent_page_id',0)->where('page_status','1')->orderBy('position','ASC')->get();
         return view("website.normal")->with(['message'=>$message,'slug_detail'=>$normal,'normal'=>$normal,'menus'=>$menus,'global_setting'=>$global_setting,'job_slug'=>$slug]);
+    }
+    public function MemberDetail($id){
+        $boardmemberdetail = Navigation::find($id);
+        return view("website.boardmemberdetail",compact('boardmemberdetail'));
     }
     public function allCategory(){
         $job_categories = Navigation::all()->where('nav_category','Main')->where('page_type','Group')->where('banner_image','!=',null);

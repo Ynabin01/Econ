@@ -47,7 +47,7 @@ class NavigationController extends Controller
             'alias' => 'required|unique:navigations',
             'caption' => 'required',
             'icon_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:10240',
-            'banner_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:10240'
+            
 
         ]);
 

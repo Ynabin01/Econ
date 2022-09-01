@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-xl-3 col-lg-3 col-md-6">
                     <div class="team_one_single">
-                        <a href="boardmemberdetail">
+                        <a href="{{route('boardmemberdetail',$boardmember->id)}}">
                             <div class="team_one_image">
                                 <img src="{{$boardmember->banner_image}}" alt="">
                             </div>

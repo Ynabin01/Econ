@@ -121,10 +121,10 @@ class ContactController extends Controller
 
     }
     public function MemberformStore(Request $req){
-        // $validated = $req->validate([
-        //     'name' => 'required',
-        //     'number' => 'required',
-        //  ]);
+        $validated = $req->validate([
+            'owner_name' => 'required',
+            'email'=> 'required',
+         ]);
            //return $req['country'];
             $contact = new Memberform;
             $contact->gov_reg_date = $req['gov_reg_date'];

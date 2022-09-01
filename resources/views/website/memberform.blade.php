@@ -1,7 +1,6 @@
 @extends('layouts.master')
 
 @section('content')
-
     <section class="page-header">
         <div class="container">
             <div class="row align-items-center">
@@ -25,13 +24,15 @@
                 <h2>Membership Form</h2>
 
                 <div class="form-inputs">
-                    <form class="needs-validation" action="/member/store" method="POST"  enctype='multipart/form-data' novalidate>
-                       @csrf
+                    <form class="needs-validation" action="/member/store" method="POST" enctype='multipart/form-data'
+                        novalidate>
+                        @csrf
                         <div class="form-row">
                             <div class="col-md-4">
                                 <div class="text-input">
                                     <label for="govRegdDate">Gov. Regd. Date:</label>
                                     <input type="date" name="gov_reg_date" id="govRegdDate" required>
+                                 
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -43,7 +44,7 @@
                             <div class="col-md-4">
                                 <div class="text-input">
                                     <label for="companyName">Name of the Firm/Company:</label>
-                                    <input type="text" name="company_name" id="companyName">
+                                    <input type="text" name="company_name" id="companyName" req>
                                 </div>
                             </div>
                             <div class="col-md-12">
@@ -210,7 +211,8 @@
                                 <div class="check-boxes">
                                     <ul>
                                         <li>
-                                            <input type="checkbox" name="accept_policies<" /> <span>I/We hereby certify that above
+                                            <input type="checkbox" name="accept_policies<" /> <span>I/We hereby certify
+                                                that above
                                                 declared infromation are true. I/We agree to obey the rule, regulation and
                                                 constiution of the council.</span>
                                         </li>

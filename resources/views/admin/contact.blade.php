@@ -9,7 +9,7 @@
         </div>
         <div class="col-md-6">
         <ul class="thm-breadcrumb list-unstyled">
-            <li><a href="index.html">Home</a></li>
+            <li><a href="/">Home</a></li>
             <li><span>Contact</span></li>
         </ul>
         </div>

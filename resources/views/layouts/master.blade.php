@@ -146,7 +146,7 @@ if (isset($normal)) {
                                 </li>
                                 <!--------start menu----------->
                                 @foreach ($menus as $menu)
-                                    <li @if (isset($slug_detail) && $menu['nav_name'] == $slug_detail['nav_name']) class="current" @endif><a
+                                    <li @if($menu->childs->count()>0) class = "dropdown" @endif @if (isset($slug_detail) && $menu['nav_name'] == $slug_detail['nav_name']) class="dropdown current" @endif><a
                                             href="@if($menu['nav_name']=='who-we-are' || $menu['nav_name']=='services1') # @else {{ route('category', $menu->nav_name) }} @endif ">{{ $menu->caption }}</a>
                                         <ul>
 

@@ -115,7 +115,7 @@ if (isset($normal)) {
                         <a href="tel:97714441337"><span class="icon-phone-call"></span>{{ $global_setting->phone }}</a>
                     </div>
                     <div class="topbar-one__middle">
-                        <a href="/index" class="main-nav__logo">
+                        <a href="/" class="main-nav__logo">
                             {{-- <img src="website/images/econ.png" class="main-logo" alt="Awesome Image" /> --}}
                             <img src="/uploads/icons/{{ $global_setting->site_logo }}"
                                         alt="_logo" title="" class="main-logo" />

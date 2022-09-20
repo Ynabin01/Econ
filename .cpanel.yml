@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home1/demoradiantnepal/econ.demo.radiantnepal.com/
+    - export DEPLOYPATH=/home/nepalexportorg/nepalexport.org.np/
     - /bin/cp -r * $DEPLOYPATH
